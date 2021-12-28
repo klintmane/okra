@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./icon.svg" alt="okra" width="75" />
+  <img src="./icon.svg" alt="okra" width="125" />
 </div>
 
 <h1 align="center">okra</h1>
