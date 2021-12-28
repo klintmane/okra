@@ -1,0 +1,25 @@
+html,
+body,
+:global(#app),
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #222;
+}
+
+.container > * {
+  position: absolute;
+  border: 2px solid transparent;
+  border-radius: 50%;
+}

@@ -1,0 +1,11 @@
+{
+  "name": "okra",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "watch": "node ./_build/index.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.8"
+  }
+}
