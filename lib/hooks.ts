@@ -3,9 +3,13 @@ import { getHook, render } from "./index";
 const depsChanged = (a: any[], b: any[]) => !a || a.length !== b.length || b.some((arg, index) => arg !== a[index]);
 
 export const useState = <T>(initial: T): [T, (action: T | ((prevState: T) => T)) => void] => {
-  const [curr, old] = getHook((o) => ({ state: o?.state || initial, queue: [] }));
+  const [curr, old] = getHook((o) => ({ state: o?.state || initial, queue: o?.queue || [] }));
 
-  (old?.queue || []).forEach((a) => (curr.state = typeof a === "function" ? a(curr.state) : a)); // apply queued values
+  while (old?.queue && old.queue.length > 0) {
+    const a = old.queue.pop();
+    curr.state = typeof a === "function" ? a(curr.state) : a;
+  }
+
   const setState = (action) => (curr.queue.push(action), render()); // push to queue and render
 
   return [curr.state, setState];

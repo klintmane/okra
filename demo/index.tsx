@@ -8,7 +8,7 @@ const Counter = () => {
   return (
     <div>
       <button onClick={() => setCount(count - 1)}>-</button>
-      {["Count ", "is: "]}
+      Count is:{" "}
       <>
         <span>{count}</span>
       </>
@@ -18,9 +18,9 @@ const Counter = () => {
 };
 
 const App = () => {
-  const [test, setTest] = useState(0);
+  // const [test, setTest] = useState(0);
 
-  return false ? (
+  return true ? (
     <Stress />
   ) : (
     <div>

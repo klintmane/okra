@@ -8,21 +8,14 @@ const initialState = { tick: 0, pos: { x: 0, y: 0 }, big: false };
 
 export default () => {
   const [state, setState] = useState(initialState);
-  // const [big, setBig] = useState(false);
   const { tick, pos, big } = state;
-
-  // const setState = (v) => _setState((s) => ({ ...s, ...v }));
 
   // Infinite animation loop
   useEffect(() => {
     const a = setTimeout(() => setState((s) => ({ ...s, tick: s.tick + 1 })));
     return () => clearTimeout(a);
-    // setState((s) => ({ ...s, tick: tick + 1 }));
-  }, []);
+  }, [tick]); // setState is not stable
 
-  // setState({ tick: Math.random() });
-
-  // Mouse behaviour
   useEffect(() => {
     const move = (e) => setState((s) => ({ ...s, pos: { x: e.pageX, y: e.pageY } }));
     const grow = (e) => setState((s) => ({ ...s, big: true }));
@@ -37,7 +30,7 @@ export default () => {
       removeEventListener("pointerdown", grow);
       removeEventListener("pointerup", shrink);
     };
-  }, []); // setState is not stable
+  }, []);
 
   const max = COUNT + Math.round(Math.sin((tick / 90) * 2 * Math.PI) * COUNT * 0.5);
 
