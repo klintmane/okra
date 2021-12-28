@@ -16,7 +16,7 @@ export type Fiber<T = Elem> = {
   parent?: Fiber<T>;
   child?: Fiber<T>;
   sibling?: Fiber<T>;
-  alternate?: Fiber<T>;
+  alt?: Fiber<T>;
   effect?: "INSERT" | "UPDATE" | "DELETE";
 };
 

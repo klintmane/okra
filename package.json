@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "watch": "node ./_build/index.js"
+    "build": "node ./_build/build.js",
+    "start": "node ./_build/watch.js"
   },
   "devDependencies": {
     "esbuild": "^0.14.8"

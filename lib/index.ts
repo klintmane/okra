@@ -23,7 +23,7 @@ export const createRenderer = <T>(def: Renderer<T>) => (
 );
 
 export const getHook = (v) => {
-  const old = wipFiber.alternate && wipFiber.alternate.hooks && wipFiber.alternate.hooks[hookIndex++];
+  const old = wipFiber.alt && wipFiber.alt.hooks && wipFiber.alt.hooks[hookIndex++];
   const curr = typeof v == "function" ? v(old) : v;
   wipFiber.hooks.push(curr);
   return [curr, old];
@@ -41,7 +41,7 @@ export const h = createFiber;
 
 // if element specified renders it into container (root render) otherwise performs a currenRoot re-render
 export const render = (f?: Fiber, dom = currentRoot?.dom) => {
-  wipRoot = dom ? { dom, props: f ? { children: [f] } : currentRoot?.props, alternate: currentRoot } : wipRoot;
+  wipRoot = dom ? { dom, props: f ? { children: [f] } : currentRoot?.props, alt: currentRoot } : wipRoot;
   nextUnitOfWork = wipRoot;
   deletions = [];
 };
@@ -64,7 +64,7 @@ const commitWork = (f: Fiber) => {
   const dom = target.dom;
 
   f.dom && f.effect == "INSERT" && renderer.insert(dom, f.dom);
-  f.dom && f.effect == "UPDATE" && renderer.update(f.dom, f.alternate.props, f.props); // In here we need to append or insertBefore depending on keys - we need a keyed implementation: https://github.com/pomber/didact/issues/9
+  f.dom && f.effect == "UPDATE" && renderer.update(f.dom, f.alt.props, f.props); // In here we need to append or insertBefore depending on keys - we need a keyed implementation: https://github.com/pomber/didact/issues/9
   f.effect == "DELETE" ? commitDeletion(f, dom) : (commitWork(f.child), commitWork(f.sibling));
 };
 
@@ -112,7 +112,7 @@ const updateHostComponent = (f: Fiber) => {
 };
 
 const reconcileChildren = (wip: Fiber, elements: Fiber[] = []) => {
-  let prev = wip.alternate && wip.alternate.child;
+  let prev = wip.alt && wip.alt.child;
   let prevSibling = null;
 
   for (let i = 0; i < elements.length || prev != null; i++) {
@@ -120,9 +120,9 @@ const reconcileChildren = (wip: Fiber, elements: Fiber[] = []) => {
 
     const preserve = prev && el && el.type == prev.type; // preserve the element?
     const newFiber: Fiber = preserve
-      ? { type: prev.type, props: el.props, dom: prev.dom, parent: wip, alternate: prev, effect: "UPDATE" }
+      ? { type: prev.type, props: el.props, dom: prev.dom, parent: wip, alt: prev, effect: "UPDATE" }
       : el
-      ? { type: el.type, props: el.props, dom: null, parent: wip, alternate: null, effect: "INSERT" }
+      ? { type: el.type, props: el.props, dom: null, parent: wip, alt: null, effect: "INSERT" }
       : null;
 
     if (prev && !preserve) {
