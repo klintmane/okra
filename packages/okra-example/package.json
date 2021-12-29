@@ -1,0 +1,8 @@
+{
+  "name": "okra-example",
+  "version": "0.0.1",
+  "dependencies": {
+    "okra": "workspace:0.0.1",
+    "okra-dom": "workspace:0.0.1"
+  }
+}

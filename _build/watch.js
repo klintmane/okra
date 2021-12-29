@@ -10,7 +10,7 @@ esbuild
     jsxFactory: "_p_h",
     jsxFragment: "_p_f",
     inject: ["./_build/shim.js"],
-    entryPoints: ["./packages/okra-demo/src/index.tsx"],
+    entryPoints: ["./packages/okra-example/src/index.tsx"],
     bundle: true,
     outfile: "./dist/bundle.js",
     banner: { js: liveReload },

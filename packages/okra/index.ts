@@ -1,6 +1,7 @@
 import type { Fiber, Props, Renderer } from "./types";
 export * from "./hooks";
 
+// TODO: This should be isomorphic - no window in node.js
 // @ts-ignore
 const scheduler = window.requestIdleCallback;
 // @ts-ignore

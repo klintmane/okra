@@ -1,5 +1,5 @@
 import { useState } from "okra";
-import { render } from "okra/dom";
+import { render } from "okra-dom";
 import Stress from "./stress";
 
 const Counter = () => {
