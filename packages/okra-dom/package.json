@@ -1,0 +1,10 @@
+{
+  "name": "okra-dom",
+  "version": "0.0.1",
+  "dependencies": {
+    "okra": "workspace:0.0.1"
+  },
+  "peerDependencies": {
+    "okra": "workspace:0.0.1"
+  }
+}

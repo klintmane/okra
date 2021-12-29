@@ -10,7 +10,7 @@ esbuild
     jsxFactory: "_p_h",
     jsxFragment: "_p_f",
     inject: ["./_build/shim.js"],
-    entryPoints: ["./demo/index.tsx"],
+    entryPoints: ["./packages/okra-demo/src/index.tsx"],
     bundle: true,
     outfile: "./dist/bundle.js",
     banner: { js: liveReload },
@@ -37,4 +37,3 @@ createServer((req, res) =>
 ).listen(8082);
 
 esbuild.serve({ servedir: "./dist", port: 3000 }, {});
-

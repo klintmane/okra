@@ -1,4 +1,4 @@
-import { useState, useEffect } from "../lib";
+import { useState, useEffect } from "okra";
 import "./style.css";
 
 const COUNT = 100;

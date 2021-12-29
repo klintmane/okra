@@ -1,5 +1,5 @@
-import { useState } from "../lib";
-import { render } from "../lib/dom";
+import { useState } from "okra";
+import { render } from "okra/dom";
 import Stress from "./stress";
 
 const Counter = () => {

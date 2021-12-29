@@ -6,7 +6,7 @@ esbuild
     jsxFactory: "_p_h",
     jsxFragment: "_p_f",
     inject: ["./_build/shim.js"],
-    entryPoints: ["./lib/index.ts"],
+    entryPoints: ["./packages/okra/index.ts"],
     format: "esm",
     bundle: true,
     minify: true,
