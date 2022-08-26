@@ -1,7 +1,8 @@
 import { useState, useEffect } from "okra";
+import { FPS } from "./fps";
 import "./style.css";
 
-const COUNT = 100;
+const COUNT = 200;
 const LOOPS = COUNT * 0.05;
 
 const initialState = { tick: 0, pos: { x: 0, y: 0 }, big: false };
@@ -36,6 +37,7 @@ export default () => {
 
   return (
     <div class="container">
+      <FPS />
       <Cursor label x={pos.x} y={pos.y} big={big} />
       {Array.from({ length: max }, (_, i) => {
         const f = (i / max) * LOOPS;

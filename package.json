@@ -4,9 +4,13 @@
   "main": "index.js",
   "scripts": {
     "build": "node ./_build/build.js",
+    "test": "uvu -r esbuild-register tests",
     "start": "node ./_build/watch.js"
   },
   "devDependencies": {
-    "esbuild": "^0.14.8"
+    "esbuild": "^0.14.8",
+    "esbuild-register": "^3.3.1",
+    "linkedom": "^0.13.0",
+    "uvu": "^0.5.2"
   }
 }

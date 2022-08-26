@@ -1,1 +1,1 @@
-export { h as _p_h, Fragment as _p_f } from "../packages/okra";
+export { h, Fragment } from "../packages/okra";

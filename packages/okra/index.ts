@@ -1,13 +1,10 @@
 import type { Fiber, Props, Renderer } from "./types";
+import { scheduler } from "./scheduler";
 export * from "./hooks";
 
-// TODO: This should be isomorphic - no window in node.js
-// @ts-ignore
-const scheduler = window.requestIdleCallback;
-// @ts-ignore
-scheduler.cancel = window.cancelIdleCallback;
-
 // STATE
+
+// TODO: Support style object?
 
 export const Fragment = null;
 let nextUnitOfWork: Fiber = null;

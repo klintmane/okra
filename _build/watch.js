@@ -7,8 +7,8 @@ const liveReload = ` (() => new EventSource("http://localhost:8082").onmessage =
 
 esbuild
   .build({
-    jsxFactory: "_p_h",
-    jsxFragment: "_p_f",
+    jsxFactory: "h",
+    jsxFragment: "Fragment",
     inject: ["./_build/shim.js"],
     entryPoints: ["./packages/okra-example/src/index.tsx"],
     bundle: true,

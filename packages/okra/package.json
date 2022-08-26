@@ -1,7 +1,6 @@
 {
   "name": "okra",
   "version": "0.0.1",
-  "main": "index.js",
   "scripts": {
     "build": "node ./_build/build.js",
     "start": "node ./_build/watch.js"

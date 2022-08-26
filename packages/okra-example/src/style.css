@@ -23,3 +23,29 @@ body,
   border: 2px solid transparent;
   border-radius: 50%;
 }
+
+/* FPS */
+
+.fps {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 999999;
+  padding: 0.5rem;
+  color: red;
+}
+
+.bars {
+  position: relative;
+  overflow: hidden;
+  background: crimson;
+  margin-bottom: 1rem;
+}
+
+.bars > * {
+  position: absolute;
+  bottom: 0;
+  background: maroon;
+  /* border-left: 0.1rem solid #72007c; */
+  box-sizing: border-box;
+}
